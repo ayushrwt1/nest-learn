@@ -23,8 +23,23 @@ let UserService = class UserService {
         this.userModel = userModel;
     }
     async createUser(registerUserDto) {
-        const createdUser = await this.userModel.create(registerUserDto);
-        return createdUser;
+        try {
+            const createdUser = await this.userModel.create({
+                fname: registerUserDto.fname,
+                lname: registerUserDto.lname,
+                email: registerUserDto.email,
+                password: registerUserDto.password,
+            });
+            return createdUser;
+        }
+        catch (error) {
+            console.error('Error creating user:', error);
+            const err = error;
+            if (err.code === 11000) {
+                throw new common_1.ConflictException('Email already exists');
+            }
+            throw err;
+        }
     }
     async findByEmail(email) {
         return this.userModel.findOne({ email });

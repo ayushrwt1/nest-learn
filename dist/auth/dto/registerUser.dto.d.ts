@@ -1,5 +1,5 @@
 export declare class RegisterDto {
-    fnmae: string;
+    fname: string;
     lname: string;
     email: string;
     password: string;

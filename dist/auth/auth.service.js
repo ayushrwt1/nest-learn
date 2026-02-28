@@ -24,9 +24,8 @@ let AuthService = class AuthService {
     async registerUser(registerUserDto) {
         const saltRounds = 10;
         const hash = await bcrypt_1.default.hash(registerUserDto.password, saltRounds);
-        console.log(hash);
-        const result = this.userService.createUser({ ...registerUserDto, password: hash });
-        return { result };
+        const user = await this.userService.createUser({ ...registerUserDto, password: hash });
+        return { user, message: 'User registered successfully' };
     }
 };
 exports.AuthService = AuthService;

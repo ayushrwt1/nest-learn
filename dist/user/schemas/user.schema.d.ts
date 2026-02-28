@@ -1,10 +1,11 @@
 import { HydratedDocument } from 'mongoose';
 export type UserDocument = HydratedDocument<User>;
 export declare class User {
+    fname: string;
+    lname: string;
     email: string;
     password: string;
-    name: string;
-    createdAt: Date;
+    role: string;
 }
 export declare const UserSchema: import("mongoose").Schema<User, import("mongoose").Model<User, any, any, any, (import("mongoose").Document<unknown, any, User, any, import("mongoose").DefaultSchemaOptions> & User & {
     _id: import("mongoose").Types.ObjectId;
@@ -25,6 +26,24 @@ export declare const UserSchema: import("mongoose").Schema<User, import("mongoos
 }, "id"> & {
     id: string;
 }, {
+    fname?: import("mongoose").SchemaDefinitionProperty<string, User, import("mongoose").Document<unknown, {}, User, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<User & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & {
+        id: string;
+    }> | undefined;
+    lname?: import("mongoose").SchemaDefinitionProperty<string, User, import("mongoose").Document<unknown, {}, User, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<User & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    }, "id"> & {
+        id: string;
+    }> | undefined;
     email?: import("mongoose").SchemaDefinitionProperty<string, User, import("mongoose").Document<unknown, {}, User, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<User & {
@@ -43,16 +62,7 @@ export declare const UserSchema: import("mongoose").Schema<User, import("mongoos
     }, "id"> & {
         id: string;
     }> | undefined;
-    name?: import("mongoose").SchemaDefinitionProperty<string, User, import("mongoose").Document<unknown, {}, User, {
-        id: string;
-    }, import("mongoose").DefaultSchemaOptions> & Omit<User & {
-        _id: import("mongoose").Types.ObjectId;
-    } & {
-        __v: number;
-    }, "id"> & {
-        id: string;
-    }> | undefined;
-    createdAt?: import("mongoose").SchemaDefinitionProperty<Date, User, import("mongoose").Document<unknown, {}, User, {
+    role?: import("mongoose").SchemaDefinitionProperty<string, User, import("mongoose").Document<unknown, {}, User, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<User & {
         _id: import("mongoose").Types.ObjectId;
