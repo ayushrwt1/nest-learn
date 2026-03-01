@@ -35,7 +35,8 @@ let UserService = class UserService {
         catch (error) {
             console.error('Error creating user:', error);
             const err = error;
-            if (err.code === 11000) {
+            const DUPLICATE_KEY_ERROR_CODE = 11000;
+            if (err.code === DUPLICATE_KEY_ERROR_CODE) {
                 throw new common_1.ConflictException('Email already exists');
             }
             throw err;
