@@ -32,6 +32,19 @@ let AuthService = class AuthService {
         const token = await this.jwtService.signAsync(payload);
         return { access_token: token };
     }
+    async loginUser(loginUserDto) {
+        const user = await this.userService.findByEmail(loginUserDto);
+        if (!user) {
+            throw new Error('Invalid credentials');
+        }
+        const isPasswordValid = await bcrypt_1.default.compare(loginUserDto.password, user.password);
+        if (!isPasswordValid) {
+            throw new Error('Invalid credentials');
+        }
+        const payload = { sub: user._id };
+        const token = await this.jwtService.signAsync(payload);
+        return { access_token: token };
+    }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([

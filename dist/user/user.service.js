@@ -42,8 +42,8 @@ let UserService = class UserService {
             throw err;
         }
     }
-    async findByEmail(email) {
-        return this.userModel.findOne({ email });
+    async findByEmail(loginUserDto) {
+        return this.userModel.findOne({ email: loginUserDto.email });
     }
     async findById(id) {
         return this.userModel.findById(id);
