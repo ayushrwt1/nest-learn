@@ -19,7 +19,7 @@ export declare class UserService {
     } & {
         id: string;
     }) | null>;
-    findById(id: string): Promise<(import("mongoose").Document<unknown, {}, User, {}, import("mongoose").DefaultSchemaOptions> & User & {
+    findUserById(id: string): Promise<(import("mongoose").Document<unknown, {}, User, {}, import("mongoose").DefaultSchemaOptions> & User & {
         _id: import("mongoose").Types.ObjectId;
     } & {
         __v: number;

@@ -10,4 +10,10 @@ export declare class AuthController {
     login(loginUserDto: LoginDto): Promise<{
         access_token: string;
     }>;
+    getProfile(req: any): Promise<{
+        id: import("mongoose").Types.ObjectId | undefined;
+        fname: string | undefined;
+        lname: string | undefined;
+        email: string | undefined;
+    }>;
 }

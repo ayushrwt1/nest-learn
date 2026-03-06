@@ -45,8 +45,8 @@ let UserService = class UserService {
     async findByEmail(loginUserDto) {
         return this.userModel.findOne({ email: loginUserDto.email });
     }
-    async findById(id) {
-        return this.userModel.findById(id);
+    async findUserById(id) {
+        return this.userModel.findById({ _id: id });
     }
     async getAllUsers() {
         return this.userModel.find();

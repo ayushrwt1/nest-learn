@@ -45,6 +45,9 @@ let AuthService = class AuthService {
         const token = await this.jwtService.signAsync(payload);
         return { access_token: token };
     }
+    async findUserById(id) {
+        return this.userService.findUserById(id);
+    }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([

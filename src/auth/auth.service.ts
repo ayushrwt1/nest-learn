@@ -39,4 +39,8 @@ export class AuthService {
 
         return { access_token: token };
     }
+
+    async findUserById(id: string) {
+        return this.userService.findUserById(id);
+    }
 } 

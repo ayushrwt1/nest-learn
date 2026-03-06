@@ -34,8 +34,8 @@ export class UserService {
         return this.userModel.findOne({ email: loginUserDto.email });
     }
 
-    async findById(id: string) {
-        return this.userModel.findById(id);
+    async findUserById(id: string) {
+        return this.userModel.findById({ _id: id });
     }
 
     async getAllUsers() {
