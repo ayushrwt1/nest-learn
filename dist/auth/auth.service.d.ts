@@ -12,4 +12,11 @@ export declare class AuthService {
     loginUser(loginUserDto: LoginDto): Promise<{
         access_token: string;
     }>;
+    findUserById(id: string): Promise<(import("mongoose").Document<unknown, {}, import("../user/schemas/user.schema").User, {}, import("mongoose").DefaultSchemaOptions> & import("../user/schemas/user.schema").User & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    } & {
+        id: string;
+    }) | null>;
 }
