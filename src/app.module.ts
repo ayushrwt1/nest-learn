@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { ConditionalModule } from '@nestjs/config';
+import { CourseModule } from './course/course.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ConditionalModule } from '@nestjs/config';
     ),
     AuthModule,
     UserModule,
+    CourseModule,
     // ConditionalModule.forRoot(),
   ],
   controllers: [AppController],
