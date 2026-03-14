@@ -1,1 +1,1 @@
-{"version":3,"file":"update-course.dto.js","sourceRoot":"","sources":["../../../src/course/dto/update-course.dto.ts"],"names":[],"mappings":";;;AAAA,uDAAmD;AACnD,2DAAsD;AAEtD,MAAa,eAAgB,SAAQ,IAAA,0BAAW,EAAC,mCAAe,CAAC;CAAG;AAApE,0CAAoE"}
+{"version":3,"file":"update-course.dto.js","sourceRoot":"","sources":["../../../src/course/dto/update-course.dto.ts"],"names":[],"mappings":";;;AAAA,uDAAmD;AACnD,2DAAsD;AAEtD,MAAa,eAAgB,SAAQ,IAAA,0BAAW,EAAC,mCAAe,CAAC;IAC7D,IAAI,CAAsB;IAC1B,WAAW,CAAsB;IACjC,KAAK,CAAsB;IAC3B,KAAK,CAAsB;CAC9B;AALD,0CAKC"}

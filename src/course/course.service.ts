@@ -17,19 +17,19 @@ export class CourseService {
     });
   }
 
-  findAll() {
-    return `This action returns all course`;
+  async findAll() {
+
+    return await this.courseModel.find().exec(); }
+
+  async findOne(id: string) {
+    return await this.courseModel.findById({ _id: id }).exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} course`;
+  async update(id: string, updateCourseDto: UpdateCourseDto) {
+    return await this.courseModel.findByIdAndUpdate({ _id: id }, updateCourseDto, { new: true }).exec();
   }
 
-  update(id: number, updateCourseDto: UpdateCourseDto) {
-    return `This action updates a #${id} course`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} course`;
+  async remove(id: string) {
+    return await this.courseModel.findByIdAndDelete({ _id: id }).exec();
   }
 }

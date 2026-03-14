@@ -30,17 +30,17 @@ let CourseService = class CourseService {
             price: createCourseDto.price,
         });
     }
-    findAll() {
-        return `This action returns all course`;
+    async findAll() {
+        return await this.courseModel.find().exec();
     }
-    findOne(id) {
-        return `This action returns a #${id} course`;
+    async findOne(id) {
+        return await this.courseModel.findById({ _id: id }).exec();
     }
-    update(id, updateCourseDto) {
-        return `This action updates a #${id} course`;
+    async update(id, updateCourseDto) {
+        return await this.courseModel.findByIdAndUpdate({ _id: id }, updateCourseDto, { new: true }).exec();
     }
-    remove(id) {
-        return `This action removes a #${id} course`;
+    async remove(id) {
+        return await this.courseModel.findByIdAndDelete({ _id: id }).exec();
     }
 };
 exports.CourseService = CourseService;

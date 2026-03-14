@@ -18,6 +18,9 @@ const course_service_1 = require("./course.service");
 const create_course_dto_1 = require("./dto/create-course.dto");
 const update_course_dto_1 = require("./dto/update-course.dto");
 const auth_guard_1 = require("../auth/auth.guard");
+const roles_decorator_1 = require("../auth/roles.decorator");
+const user_types_1 = require("../user/user.types");
+const roles_guard_1 = require("../auth/roles.guard");
 let CourseController = class CourseController {
     courseService;
     constructor(courseService) {
@@ -30,19 +33,20 @@ let CourseController = class CourseController {
         return this.courseService.findAll();
     }
     findOne(id) {
-        return this.courseService.findOne(+id);
+        return this.courseService.findOne(id);
     }
     update(id, updateCourseDto) {
-        return this.courseService.update(+id, updateCourseDto);
+        return this.courseService.update(id, updateCourseDto);
     }
     remove(id) {
-        return this.courseService.remove(+id);
+        return this.courseService.remove(id);
     }
 };
 exports.CourseController = CourseController;
 __decorate([
     (0, common_1.Post)(),
-    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard, roles_guard_1.RolesGuard),
+    (0, roles_decorator_1.Roles)(user_types_1.Role.Admin),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_course_dto_1.CreateCourseDto]),
