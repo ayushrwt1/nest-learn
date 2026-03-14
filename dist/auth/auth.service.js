@@ -28,7 +28,7 @@ let AuthService = class AuthService {
         const saltRounds = 10;
         const hash = await bcrypt_1.default.hash(registerUserDto.password, saltRounds);
         const user = await this.userService.createUser({ ...registerUserDto, password: hash });
-        const payload = { sub: user._id };
+        const payload = { sub: user._id, role: 'admin' };
         const token = await this.jwtService.signAsync(payload);
         return { access_token: token };
     }
@@ -41,7 +41,7 @@ let AuthService = class AuthService {
         if (!isPasswordValid) {
             throw new Error('Invalid credentials');
         }
-        const payload = { sub: user._id };
+        const payload = { sub: user._id, role: 'admin' };
         const token = await this.jwtService.signAsync(payload);
         return { access_token: token };
     }

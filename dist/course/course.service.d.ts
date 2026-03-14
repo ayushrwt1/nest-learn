@@ -12,8 +12,32 @@ export declare class CourseService {
     } & {
         id: string;
     }>;
-    findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updateCourseDto: UpdateCourseDto): string;
-    remove(id: number): string;
+    findAll(): Promise<(import("mongoose").Document<unknown, {}, Course, {}, import("mongoose").DefaultSchemaOptions> & Course & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    } & {
+        id: string;
+    })[]>;
+    findOne(id: string): Promise<(import("mongoose").Document<unknown, {}, Course, {}, import("mongoose").DefaultSchemaOptions> & Course & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    } & {
+        id: string;
+    }) | null>;
+    update(id: string, updateCourseDto: UpdateCourseDto): Promise<(import("mongoose").Document<unknown, {}, Course, {}, import("mongoose").DefaultSchemaOptions> & Course & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    } & {
+        id: string;
+    }) | null>;
+    remove(id: string): Promise<(import("mongoose").Document<unknown, {}, Course, {}, import("mongoose").DefaultSchemaOptions> & Course & {
+        _id: import("mongoose").Types.ObjectId;
+    } & {
+        __v: number;
+    } & {
+        id: string;
+    }) | null>;
 }
